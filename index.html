@@ -26,13 +26,6 @@
 
             <img class="mySlides" src="http://via.placeholder.com/1920x1080">
             <img class="mySlides" src="images/4.jpg">
-<!--
-            <img class="mySlides" src="images/5.jpg">
-            <img class="mySlides" src="images/6.jpg">
-            <img class="mySlides" src="images/7.jpg">
-            <img class="mySlides" src="images/8.jpg">
-
--->
 
             </div>
 
@@ -90,16 +83,28 @@
                 });
              });
 
+<<<<<<< HEAD
 
+=======
+            //automatically refresh page
+            function AutoRefresh( t ) {
+               setTimeout("location.reload(true);", t);
+            }
+
+            //gets rid of scroll bars
+>>>>>>> origin/feature/slideshow
             function unloadScrollBars() {
                 document.documentElement.style.overflow = 'hidden';  // firefox, chrome
                 document.body.scroll = "no"; // ie only
             }
 
+<<<<<<< HEAD
             function AutoRefresh( t ) {
                setTimeout("location.reload(true);", t);
             }
 
+=======
+>>>>>>> origin/feature/slideshow
             window.onload=function(){
                 unloadScrollBars();
                 AutoRefresh(60000 * 60);
