@@ -22,7 +22,7 @@
 
         <div class="w3-cell-row">
 
-            <div class="w3-cell cycle-slideshow">
+            <div  id="alpha" class="w3-cell cycle-slideshow">
 
             <img class="mySlides" src="http://via.placeholder.com/1920x1080">
             <img class="mySlides" src="images/4.jpg">
@@ -69,26 +69,43 @@
                 myIndex++;
                 if (myIndex > x.length) {myIndex = 1}
                 x[myIndex-1].style.display = "block";
-                setTimeout(carousel, 2000); // Change image every 2 seconds
+                setTimeout(carousel, 5000); // Change image every 2 seconds
             }
 
             //script for reading files
             $(document).ready(function(){
                 var folder="Content/";
+
             $.ajax({
                 url: folder,
                 success: function (data) {
                 $(data).find("a").attr("href", function (i, val){
                     if (val.match(/\.(jpeg|png|gif|jpg|JPG|PNG|GIF|JPEG)$/) ){
-                        $("body").append( "<div class='w3-left'>" + "<div class='w3-cell cycle-slideshow'>" +
+                        $("#alpha").append( "<div class='w3-left'>" + "<div class='w3-cell cycle-slideshow'>" +
                                          "<img class='mySlides'  style='height:auto;' src=" + folder + val +">" +
-                                         "<div class='w3-container w3-grey w3-cell' >" +
                                          "</div>" + "</div>");
                             }
                         });
                     }
                 });
              });
+
+
+            function unloadScrollBars() {
+                document.documentElement.style.overflow = 'hidden';  // firefox, chrome
+                document.body.scroll = "no"; // ie only
+            }
+
+            function AutoRefresh( t ) {
+               setTimeout("location.reload(true);", t);
+            }
+
+            window.onload=function(){
+                unloadScrollBars();
+                AutoRefresh(60000 * 60);
+                //AutoRefresh(60000 * 1);//refresh every minute
+            }
+
 
             //script for clock
               $(document).ready(function(){
@@ -103,10 +120,10 @@
             //script for weather
             $(document).ready(function() {
                   getWeather(); //Get the initial weather.
-                  setInterval(getWeather, 30000); //Update the weather every 5 minutes.
+                  setInterval(getWeather, 5000); //Update the weather every 5 minutes.
                 });
 
-                function getWeather() {
+            function getWeather() {
                   $.simpleWeather({
                     location: '65201',
                     unit: 'f',
