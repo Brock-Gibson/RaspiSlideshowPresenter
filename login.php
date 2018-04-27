@@ -5,32 +5,16 @@
 <head>
 	<title>CCH Slideshow Login</title>
 	<meta charset="utf-8">
-	<link href="app.css" rel="stylesheet" type="text/css">
-    <link href="../jquery-ui-1.11.4.custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
-    <script src="../jquery-ui-1.11.4.custom/external/jquery/jquery.js"></script>
-    <script src="../jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
-    <script>
-//        jquery ui Function
-       $(function(){
-           $("input[type=submit]").button();
-       });
+	<link href="w3.css" rel="stylesheet" type="text/css">
 
-
-    </script>
-
-    <style>
-        #container {
-            background-color: lightslategray;
-        }
-    </style>
 </head>
-<body>
-    <div id="loginWidget" class="ui-widget">
-        <h1 class="ui-widget-header">Login</h1>
+<body class="w3-grey">
+    <div class="w3-container w3-grey w3-center">
+        <h1 class="w3-jumbo w3-center" >Slideshow Login</h1>
 
         <?php
             if ($error) {
-                print "<div class=\"ui-state-error\">$error</div>\n";
+                print "<div class=\"w3-panel w3-teal w3-center w3-padding w3-round w3-large\">$error</div>\n";
             }
         ?>
 
@@ -38,19 +22,16 @@
 
             <input type="hidden" name="action" value="do_login">
 
-            <div class="stack">
-                <label for="username">User name:</label>
-                <input type="text" id="username" name="username" class="ui-widget-content ui-corner-all" autofocus value="<?php print $username; ?>">
+            <label class ="w3-large" for="username">User name:</label>
+            <input type="text" id="username" name="username" class="w3-input w3-border w3-round" autofocus value="<?php print $username; ?>">
+
+            <label class ="w3-large" for="password">Password:</label>
+            <input type="password" id="password" name="password" class="w3-input w3-border w3-round">
+
+            <div class= "w3-center w3-padding">
+                            <input class = "w3-button w3-white w3-xlarge w3-hover-teal" type="submit" value="Submit">
             </div>
 
-            <div class="stack">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" class="ui-widget-content ui-corner-all">
-            </div>
-
-            <div class="stack">
-                <input type="submit" value="Submit">
-            </div>
         </form>
     </div>
 

@@ -28,7 +28,7 @@
     function login_from(){
         $username="";
         $error="";
-        require "index.php";
+        require "login.php";
     }
     function handle_login(){
         $username= empty($_POST['username'])?'':$_POST['username'];
@@ -37,11 +37,11 @@
         if($username=="admin" && $password=="pass"){
             //if they mathc, set a cookie and send the uaser to page1.php
             setcookie('username', $username);
-            header("Location: upload.html");//web address for ADMIN Login
+            header("Location: upload.php");//web address for ADMIN Login
             exit;
         }else if($username=="test"&&$password=="pass"){
             setcookie('username', $username);
-            header("Location: upload.html");
+            header("Location: upload.php");
             exit;
         }
         else{
