@@ -26,6 +26,6 @@ We had three sprints, each running 5 days Monday - Friday. Our scrum planning ha
 - Total = **$56**
 
 ### Video Demo
- Link to Video Demo on Youtube
+ [Link to Video Demo on Youtube](https://www.youtube.com/watch?v=wQnNF1awbBw&feature=youtu.be)
  
  
