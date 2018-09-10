@@ -3,37 +3,59 @@
 <!--Created By: Nicholas Riley and Brock Gibson
     Application is designed as a kiosk display for the Mizzou Christian Campus House-->
 <head>
-	<title>CCH Slideshow Login</title>
-	<meta charset="utf-8">
-	<link href="w3.css" rel="stylesheet" type="text/css">
-
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CCH Slideshow Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <style>
+        .alpha {
+            background-color: #222222;
+        }
+        label, h1, .errortext {
+            color: #FFFEFD;
+        }
+    </style>
 </head>
-<body class="w3-grey">
-    <div class="w3-container w3-grey w3-center">
-        <h1 class="w3-jumbo w3-center" >Slideshow Login</h1>
+<body class="alpha">
+    <div class="text-center">
+        <h1>CCH Slideshow Login</h1>
 
         <?php
             if ($error) {
-                print "<div class=\"w3-panel w3-teal w3-center w3-padding w3-round w3-large\">$error</div>\n";
+                print "<div class=\"text-center errortext\">$error</div>\n";
             }
         ?>
 
-        <form action="loginPHP.php" method="POST">
+        <div class="container">
 
-            <input type="hidden" name="action" value="do_login">
-
-            <label class ="w3-large" for="username">User name:</label>
-            <input type="text" id="username" name="username" class="w3-input w3-border w3-round" autofocus value="<?php print $username; ?>">
-
-            <label class ="w3-large" for="password">Password:</label>
-            <input type="password" id="password" name="password" class="w3-input w3-border w3-round">
-
-            <div class= "w3-center w3-padding">
-                            <input class = "w3-button w3-white w3-xlarge w3-hover-teal" type="submit" value="Submit">
-            </div>
-
-        </form>
+            <form action="loginPHP.php" method="POST">
+                <br>
+                <input type="hidden" name="action" value="do_login">
+                <div class="form-group row">
+                    <label for="username" class="col-sm-2 col-form-label">User Name:</label>
+                    <div class="col-sm-10">
+                    <input class="form-control" type="text" id="username" name="username" autofocus value="<?php print $username; ?>">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="password" class="col-sm-2 col-form-label">Password: </label>
+                    <div class="col-sm-10">
+                    <input class="form-control" type="password" id="password" name="password">
+                    </div>
+                </div>
+                <br>
+                <div>
+                    <input class="btn btn-primary" type="submit" value="Submit">
+                </div>
+        
+            </form>
+        </div>
     </div>
 
 </body>
 </html>
+
