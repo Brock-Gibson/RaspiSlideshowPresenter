@@ -1,226 +1,141 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>PiPresents</title>
-            <script src="moment.js" type="text/javascript"></script><!-- Links to various libraries-->
-            <script src="jquery.js" type=text/javascript></script>
-            <script src="jquery.simpleWeather.min.js" type="text/javascript"></script>
-            <link rel="stylesheet" href="w3.css">
 
-        <style>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CCH Slideshow</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-            #facebook {
-                height: 770px;
-                width: 22%;
-                padding-right: 20px;
-                float: left;
-            }
-            #alpha {
-                width: 78%;
-                max-width: 78%;
-                float: left;
-            }
-            #ourmanna-verse {
-                text-align: right;
-            }
+    <link rel="stylesheet" href="bootstrap.css">
+    <script src="moment.js" type="text/javascript"></script>
+    <script src="jquery.js" type=text/javascript> </script> <style>
 
-            #time {
-                text-align: right;
-            }
+        #time,
+        #ourmanna-verse {
+            padding: 10px;
+            text-align: center;
+            color: #FFFEFD;
+            font-weight: 400;
+        }
 
-            #mannaverse {
-                font-size: 12px;
-                font-weight: bold;
-                padding-top: 2em;
-            }
+        .slideshow,
+        #alpha {
+            background-color: #161616;
+        }
 
-            .mySlides {
-                display:none;
-                float: middle;
-                height: 770px;
-                width:auto;
-                max-width: 100%;
-            }
+        .sidebar {
+            margin: -10px;
+            background-color: #222222;
+        }
 
-            /*
-            @media only screen and (max-width: 1920px){
+        .mySlides {
+            display: none;
+            float: middle;
+            height: 770px;
+            width: auto;
+            max-width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-            #facebook {
-                height: 982px;
-                width: 18%;
-                padding-right: 20px;
-                float: left;
-            }
-            #alpha {
-                width: 82%;
-                max-width: 82%;
-                float: left;
-            }
-            #ourmanna-verse {
-                text-align: center;
-                height: 120px;
+        .padding-0 {
+            padding-right: 0;
+            padding-left: 0;
+        }
+
+        #facebook {
+                height: 300px;
             }
 
-            #time {
-                text-align: center;
-            }
-
-            #mannaverse {
-                font-size: 12px;
-                font-weight: bold;
-                padding-top: 2em;
-            }
-
+        /* for 1080p displays */
+        @media only screen and (max-width: 1920px){
             .mySlides {
                 display:none;
                 float: middle;
                 height: 982px;
-                width:auto;
+                width: auto;
                 max-width: 100%;
-                }
-
+                margin-left: auto;
+                margin-right: auto; 
             }
+        }
 
-*/
-
+        /* for 720p */
         @media only screen and (max-width: 1366px){
-
-                #facebook {
-                    height: 675px;
-                    padding-right: 20px;
-                    padding-bottom: 0px;
-                    width: 23%;
-                    float: left;
-                }
-                #alpha {
-                    width: 77%;
-                    max-width: 77%;
-                    background-color: black;
-                    float: left;
-                }
-                #ourmanna-verse {
-                    text-align: center;
-                }
-
-                #mannaverse {
-                    font-size: auto;
-                    font-weight: bold;
-                    padding-top: 0px;
-                    padding-left: 20px;
-                    padding-right: 10px;
-                    padding-bottom: 0px;
-                    height: 60px;
-
-                }
-
-                .mySlides {
-                    display:none;
-                    float: left;
-                    height: 675px;
-                    width:auto;
-                    max-width: 100%;
-                }
-
-
+            .mySlides {
+                display:none;
+                float: middle; 
+                height: 675px;
+                width: auto;
+                max-width: 100%;
+                margin-left: auto;
+                margin-right: auto; 
             }
+        }
+    </style>
+</head>
 
-        </style>
-    </head>
+<body>
+    <div id="fb-root"></div>
+    <script>(function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.1';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
 
-    <body>
-<!--        <div class="MainDisplay">-->
-<!--        Facebook Addition-->
-    <div class="img-responsive">
-        <div id="fb-root"></div>
-        <script>(function(d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
-                js = d.createElement(s); js.id = id;
-                js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12';
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));</script>
-
-        <div class="w3-cell-row">
-
-            <div id="alpha" class="w3-cell-middle w3-blue">
-
-                <img class="mySlides" src="images/cchLogo1920x1080.jpg">
-            </div>
-
-
-            <div class="w3-container w3-grey w3-white" >
-                <div id="ourmanna-verse">Loading...</div>
-                <script src="http://www.ourmanna.com/verses/api/js/" type="text/javascript"></script>
-
-            </div>
-
-        <div id="facebook" class="w3-cell w3-display-container w3-padding-1px w3-blue " >
-                <div class="fb-page " data-href="https://www.facebook.com/mizzoucch/" data-tabs="timeline" data-small-header="true" data-adapt-container-width="500px" data-adapt-container-height="1900px" data-hide-cover="true" data-show-facepile="false"><blockquote cite="https://www.facebook.com/mizzoucch/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/mizzoucch/">Mizzou Christian Campus House</a></blockquote></div>
-
-                <div id="ourmanna-verse">Loading...</div>
-                <script src="http://www.ourmanna.com/verses/api/js/" type="text/javascript"></script>
-
-                <div>
-                    <p id="time" class="w3-xlarge w3-right-align w3-padding-bottom-10px"> </p>
-                </div>
-
-            <div class="w3-container w3-padding-16">
-                    <span id="time" class="w3-right w3-xlarge"> </span>
-            </div>
-
-        </div>
-
-        <div class=" w3-left w3-cell-row">
-            <div id="weather" class="w3-container w3-blue w3-cell" >
-
-                <a class="weatherwidget-io" style="w3-padding-10" href="https://forecast7.com/en/38d95n92d33/columbia/?unit=us" data-label_1="COLUMBIA" data-label_2="WEATHER" data-font="Verdana" data-theme="clear" data-basecolor="#2196F3" data-textcolor="#fcf5f5" data-highcolor="#ff851c" data-suncolor="#ff8d2c" >COLUMBIA WEATHER</a>
-                <script>
-                    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
-                </script>
+    <div class="row no-gutter">
+        <div class="slideshow col-10">
+            <!-- Div for Slideshow -->
+            <div id="alpha">
+                <img class="mySlides img-fluid" src="images/cchLogo1920x1080.jpg">
             </div>
         </div>
+        <div class="sidebar col-2 padding-0">
+            <!-- facebook  -->
+            <div class="fb-page" data-href="https://www.facebook.com/mizzoucch" data-tabs="timeline" data-height="350"
+                data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="false">
+                <blockquote cite="https://www.facebook.com/mizzoucch" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/mizzoucch">Mizzou
+                        Christian Campus House</a></blockquote>
+            </div>
+            <br>
+            <!-- bible verse -->
+            <div id="ourmanna-verse">Loading...</div>
+            <script src="http://www.ourmanna.com/verses/api/js/" type="text/javascript"></script>
+            <!-- clock  -->
+            <div>
+                <h4 id="time" class="align-bottom">Loading...</h4>
+            </div>
+        </div>
+    </div>
 
-<!--        </div>-->
+    <div class="row">
+        <div class="col-12">
+            <a class="weatherwidget-io" href="https://forecast7.com/en/38d95n92d33/columbia/?unit=us" data-label_1="COLUMBIA"
+                data-label_2="WEATHER" data-font="Roboto" data-theme="dark" data-basecolor="#505050" data-lowcolor="#CCD6DD"
+                data-suncolor="#FF9900" data-cloudfill="#292F33" data-raincolor="#55ACEE">COLUMBIA WEATHER</a>
+            <script>
+                !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = 'https://weatherwidget.io/js/widget.min.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'weatherwidget-io-js');
+            </script>
+        </div>
+
+        </body>
         <script>
-            var myIndex = 0;
-            carousel();
-            var folder =""
-        //added here
-            //function for slideshow
-            function carousel() {
-                var i;
-                var x = document.getElementsByClassName("mySlides");
-                for (i = 0; i < x.length; i++) {
-                   x[i].style.display = "none";
-                }
-                myIndex++;
-                if (myIndex > x.length) {myIndex = 1}
-                x[myIndex-1].style.display = "block";
-
-                setTimeout(carousel, 6000); // Change image every 2 seconds
-            }
-
-            //script for reading files
-            $(document).ready(function(){
-                var folder="server/php/files/";
-
-            $.ajax({
-                url: folder,
-                success: function (data) {
-                $(data).find("a").attr("href", function (i, val){
-                    if (val.match(/\.(jpeg|png|gif|jpg|JPG|PNG|GIF|JPEG)$/) ){
-
-                        $("#alpha").prepend("<div class=''>" + "<img class='mySlides' src=" + folder + val +">" + "</div>");
-
-                            }
-                        });
-                    }
-                });
-             });
+            //script for clock
+            $(document).ready(function () {
+                var time = $('#time'),
+                    update = function () {
+                        time.html(moment().format('h:mm A') + '  ' + moment().format('MMM Do'));
+                    };
+                update();
+                setInterval(update, 1000);
+            });
 
             //automatically refresh page
-            function AutoRefresh( t ) {
-               setTimeout("location.reload(true);", t);
+            function AutoRefresh(t) {
+                setTimeout("location.reload(true);", t);
             }
 
             //gets rid of scroll bars
@@ -229,29 +144,44 @@
                 document.body.scroll = "no"; // ie only
             }
 
-
-            function AutoRefresh( t ) {
-               setTimeout("location.reload(true);", t);
-            }
-
-            window.onload=function(){
+            window.onload = function () {
                 unloadScrollBars();
-                AutoRefresh(60000 * 240);
+                AutoRefresh(60000 * 60); //refresh every hour
                 //AutoRefresh(60000 * 1);//refresh every minute
             }
 
-            //script for clock
-              $(document).ready(function(){
-                var time = $('#time'),
-                    update = function(){
-                               time.html(moment().format('h:mm A') + '  ' + moment().format('MMMM Do YYYY'));
-                             };
-                update();
-                setInterval(update, 1000);
-              });
+            var myIndex = 0;
+            carousel();
+            var folder = ""
 
+            //function for slideshow
+            function carousel() {
+                var i;
+                var x = document.getElementsByClassName("mySlides");
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";
+                }
+                myIndex++;
+                if (myIndex > x.length) { myIndex = 1 }
+                x[myIndex - 1].style.display = "block";
+                setTimeout(carousel, 6000); // Change image every 2 seconds
+            }
+
+            //script for reading files
+            $(document).ready(function () {
+                var folder = "server/php/files/"; //picture folder
+
+                $.ajax({
+                    url: folder,
+                    success: function (data) {
+                        $(data).find("a").attr("href", function (i, val) {
+                            if (val.match(/\.(jpeg|png|gif|jpg|JPG|PNG|GIF|JPEG)$/)) {
+                                $("#alpha").append("<img class='mySlides' src=" + folder + val + ">");
+                            }
+                        });
+                    }
+                });
+            });
         </script>
-        </div>
-        </div>
-    </body>
+
 </html>
